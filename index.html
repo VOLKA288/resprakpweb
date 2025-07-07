@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pemesanan Tiket Akuarium</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Form Pemesanan Tiket Akuarium</h2>
+    <form action="proses.php" method="POST" oninput="hitungTotal()">
+      <label>Nama Pengunjung:</label>
+      <input type="text" name="nama" required>
+
+      <label>Pilih Cabang:</label>
+      <select name="cabang" required>
+        <option value="">-- Pilih Cabang --</option>
+        <option value="Cabang Utama">Cabang Utama</option>
+        <option value="Cabang 2">Cabang 2</option>
+        <option value="Cabang 3">Cabang 3</option>
+        <option value="Cabang 4">Cabang 4</option>
+      </select>
+
+      <label>Tiket Dewasa (Rp50.000):</label>
+      <input type="number" name="dewasa" id="dewasa" min="0" value="0" required>
+
+      <label>Tiket Anak-anak (Rp30.000):</label>
+      <input type="number" name="anak" id="anak" min="0" value="0" required>
+
+      <label>Tanggal Kunjungan:</label>
+      <input type="date" name="tanggal" required>
+
+      <p><strong>Total Harga:</strong> <span id="totalHarga">Rp0</span></p>
+
+      <!-- Hidden input untuk dikirim ke PHP -->
+      <input type="hidden" name="total" id="inputTotal">
+
+      <button type="submit">Pesan Tiket</button>
+    </form>
+  </div>
+
+  <script>
+    function hitungTotal() {
+      const hargaDewasa = 50000;
+      const hargaAnak = 30000;
+
+      const dewasa = parseInt(document.getElementById('dewasa').value) || 0;
+      const anak = parseInt(document.getElementById('anak').value) || 0;
+
+      const total = (dewasa * hargaDewasa) + (anak * hargaAnak);
+
+      document.getElementById('totalHarga').textContent = "Rp" + total.toLocaleString('id-ID');
+      document.getElementById('inputTotal').value = total;
+    }
+  </script>
+</body>
+</html>

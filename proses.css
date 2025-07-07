@@ -1,0 +1,55 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom right, #0066cc, #00ccff);
+  color: #fff;
+  margin: 0;
+  padding: 20px;
+}
+
+.tiket {
+  background-color: rgba(0, 0, 50, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  max-width: 500px;
+  margin: auto;
+}
+
+.tabel-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  color: #000;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+th {
+  background-color: #0099cc;
+  color: white;
+}
+
+h2, h3 {
+  text-align: center;
+}
+
+.btn-back {
+  display: block;
+  width: max-content;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background: #00cc66;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+}
