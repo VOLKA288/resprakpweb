@@ -4,7 +4,7 @@ $host = "localhost";
 $user = "firza933_deco";
 $pass = "mjUAZA2.L2sNwSj";
 $db   = "firza933_064";
-
+//yes
 $conn = mysqli_connect($host, $user, $pass, $db);
 if (!$conn) {
   die("Koneksi gagal: " . mysqli_connect_error());
