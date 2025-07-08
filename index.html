@@ -8,12 +8,12 @@
 <body>
   <div class="container">
     <h2>Form Pemesanan Tiket Akuarium</h2>
-    <form action="proses.php" method="POST" oninput="hitungTotal()">
+    <form action="proses.php" method="POST" oninput="hitungTotal();" onsubmit="return validateForm();" >
       <label>Nama Pengunjung:</label>
-      <input type="text" name="nama" required>
+      <input type="text" name="nama" id="nama" required>
 
       <label>Pilih Cabang:</label>
-      <select name="cabang" required>
+      <select name="cabang" id="cabang" required>
         <option value="">-- Pilih Cabang --</option>
         <option value="Cabang Utama">Cabang Utama</option>
         <option value="Cabang 2">Cabang 2</option>
@@ -28,7 +28,7 @@
       <input type="number" name="anak" id="anak" min="0" value="0" required>
 
       <label>Tanggal Kunjungan:</label>
-      <input type="date" name="tanggal" required>
+      <input type="date" name="tanggal" id="tanggal" required>
 
       <p><strong>Total Harga:</strong> <span id="totalHarga">Rp0</span></p>
 
@@ -43,7 +43,7 @@
     function hitungTotal() {
       const hargaDewasa = 50000;
       const hargaAnak = 30000;
-
+      
       const dewasa = parseInt(document.getElementById('dewasa').value) || 0;
       const anak = parseInt(document.getElementById('anak').value) || 0;
 
@@ -52,6 +52,23 @@
       document.getElementById('totalHarga').textContent = "Rp" + total.toLocaleString('id-ID');
       document.getElementById('inputTotal').value = total;
     }
+
+    function validateForm() {
+  const nama = document.getElementById("nama").value.trim();        
+  const cabang = document.getElementById("cabang").value;            
+  const dewasa = parseInt(document.getElementById("dewasa").value); 
+  const anak = parseInt(document.getElementById("anak").value);     
+  const tanggal = document.getElementById("tanggal").value;        
+
+  
+  if (!nama || !cabang || !tanggal || (dewasa + anak) === 0) {
+    alert("Lengkapi semua data dan isi minimal 1 tiket!");
+    return false; 
+  }
+
+  return true; 
+}
+
   </script>
 </body>
 </html>
