@@ -1,9 +1,9 @@
 <?php
 // Koneksi ke database
 $host = "localhost";
-$user = "root";
-$pass = "";
-$db   = "responsipweb";
+$user = "firza933_deco";
+$pass = "mjUAZA2.L2sNwSj";
+$db   = "firza933_064	";
 
 $conn = mysqli_connect($host, $user, $pass, $db);
 if (!$conn) {
